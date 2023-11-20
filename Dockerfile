@@ -11,9 +11,7 @@ RUN apk add --no-cache \
     mpv \
     pulseaudio \
     python3 \
-  && delgroup 100 \
-  && addgroup -S -g 100 mpv \
-  && adduser -u 1026 -SDHG mpv mpv \
+  && adduser -u 1026 -D mpv -G 100 \
   && mkdir -p /home/mpv/ \  
   && mkdir -p /data/ \
   && mkdir -p /home/mpv/.config/pulse \
@@ -22,7 +20,7 @@ RUN apk add --no-cache \
   && echo "daemon-binary = /bin/true" >> /home/mpv/.config/pulse/client.conf \
   && echo "enable-shm = false" >> /home/mpv/.config/pulse/client.conf \
   && mkdir -p /home/mpv/.config/mpv \
-  && chown -R mpv:mpv /home/mpv
+  && chown -R 1026:100 /home/mpv
 
 USER mpv
 
