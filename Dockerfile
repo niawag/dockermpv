@@ -12,8 +12,8 @@ RUN apk add --no-cache \
     pulseaudio \
     python3 \
   && delgroup 100 \
-  && addgroup -g 100 mpv \
-  && adduser -u 1026 -D mpv \
+  && addgroup -S -g 100 mpv \
+  && adduser -u 1026 -SDHG mpv mpv \
   && mkdir -p /home/mpv/ \  
   && mkdir -p /data/ \
   && mkdir -p /home/mpv/.config/pulse \
