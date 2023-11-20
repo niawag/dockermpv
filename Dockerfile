@@ -11,7 +11,7 @@ RUN apk add --no-cache \
     mpv \
     pulseaudio \
     python3 \
-  && delgroup 100
+  && delgroup 100 \
   && addgroup -g 100 mpv \
   && adduser -u 1026 -D mpv \
   && mkdir -p /home/mpv/ \  
