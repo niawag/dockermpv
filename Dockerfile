@@ -3,7 +3,7 @@ FROM alpine:3.18.4
 LABEL maintainer="niawag <niawag.flexget@gmail.com>"
 LABEL org.label-schema.description="Containerization of mpv.io"
 LABEL org.label-schema.name="mpv"
-LABEL org.label-schema.schema-version="0.0.2"
+LABEL org.label-schema.schema-version="0.0.3"
 LABEL org.label-schema.vcs-url="https://github.com/niawag/docker-mpv"
 
 RUN apk add --no-cache \
