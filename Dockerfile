@@ -11,11 +11,12 @@ RUN apk add --no-cache \
     mpv \
     pulseaudio \
     python3 \
-  && adduser -u 10200 -D mpv \
+  && addgroup -g 100 mpv \
+  && adduser -u 1026 -D mpv \
   && mkdir -p /home/mpv/ \  
   && mkdir -p /data/ \
   && mkdir -p /home/mpv/.config/pulse \
-  && echo "default-server = unix:/run/user/1000/pulse/native" > /home/mpv/.config/pulse/client.conf \
+  && echo "default-server = unix:/run/user/1026/pulse/native" > /home/mpv/.config/pulse/client.conf \
   && echo "autospawn = no" >> /home/mpv/.config/pulse/client.conf \
   && echo "daemon-binary = /bin/true" >> /home/mpv/.config/pulse/client.conf \
   && echo "enable-shm = false" >> /home/mpv/.config/pulse/client.conf \
